@@ -1,0 +1,24 @@
+[user]
+	name = Chris Van
+	email = chris@dekkostudios.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+    excludesfile = /Users/chris/.gitignore
+[alias]
+    ci = commit
+	co = checkout
+[merge]
+	tool = meld
+[github]
+	token = 8de0cba72dfb1837421604bdbbcefbab
+	user = jbalogh
+[interactive]
+	singlekey = 1
+[push]
+	default = matching
+[alias]
+	get = "!f() { echo Merging $1 && git checkout master && git pull && git checkout $1 && git rebase master && git checkout master && git merge $1; }; f"
+	url = "!f() { ~/Scripts/./git-url.sh $1; }; f"

@@ -1,0 +1,68 @@
+du='du -sh'
+diff='diff -u'
+grep='grep --color=auto'
+rgrep='grep -r --color=auto'
+mk='mkdir -p'
+p=popd
+o=open
+rrm='rm -rf'
+
+check=check.py
+django='python manage.py'
+
+# ls
+ls='ls -FG'
+l='ls -lh'
+l='ls -lh'
+ll='ls -lh'
+la='ls -A'
+lla='la -lhA'
+
+
+# Arch
+pac=pacman
+y=yaourt
+ins='y -S'
+rem='y -Rs'
+net='sudo netcfg2 -a; sudo netcfg2'
+x=startx
+
+# git
+g=git
+gd='git diff'
+gs='git status'
+gci='git commit'
+gl='git log'
+glp='git log -p'
+gv='git svn'
+gr='git rebase'
+gb='git branch'
+
+# nose
+nose=nosetests
+n=nose
+nh='nose -h M'
+
+# Python
+py=python
+ip=ipython
+ipo=ipython
+
+# Django
+z='cd ~/Sites/projects/zamboni && workon zamboni'
+zpull='z && git checkout master && git pull && git submodule update --init'
+zup='z && pushd vendor && git pull && git submodule update --init && popd && ./vendor/src/schematic/schematic migrations'
+check5="!f() { git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py; }; f"
+
+testme='manage.py test --noinput -s --logging-clear-handlers'
+
+# vim
+v=vim
+c=v
+b=v
+
+# ssh targets
+d='ssh dekkostudios.com@dekkostudios.com'
+p='ssh cwiemeersch@people.mozilla.org'
+
+# vim: set ft=sh
