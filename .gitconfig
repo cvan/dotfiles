@@ -1,14 +1,15 @@
 [user]
 	name = Chris Van
-	email = chris@dekkostudios.com
+	email = cwiemeersch@mozilla.com
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [core]
-    excludesfile = /Users/chris/.gitignore
+	excludesfile = /Users/chris/.gitignore
+	editor = /usr/bin/vim
 [alias]
-    ci = commit
+	ci = commit
 	co = checkout
 [merge]
 	tool = meld
@@ -22,3 +23,4 @@
 [alias]
 	get = "!f() { echo Merging $1 && git checkout master && git pull && git checkout $1 && git rebase master && git checkout master && git merge $1; }; f"
 	url = "!f() { ~/Scripts/./git-url.sh $1; }; f"
+	check = "!f() { ~/Scripts/./git-check.sh $1; }; f"
