@@ -1,1 +1,7 @@
 -i
+--type-set=mincss=-min.css
+--type-set=allcss=-all.css
+--type-set=lesscss=.less.css
+--type-set=less=.less
+
+--nolesscss

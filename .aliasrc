@@ -29,14 +29,22 @@ x=startx
 
 # git
 g=git
+gco='git checkout'
+gg='git get'
+ga='git add'
 gd='git diff'
 gs='git status'
+gst='git stash'
+gsta='git stash apply'
 gci='git commit'
 gl='git log'
 glp='git log -p'
 gv='git svn'
+gp='git pull && git submodule update --recursive'
 gr='git rebase'
+gsq='git rebase -i head~5'
 gb='git branch'
+git='hub'
 
 # nose
 nose=nosetests
@@ -47,12 +55,13 @@ nh='nose -h M'
 py=python
 ip=ipython
 ipo=ipython
+pyc='rm -rfv **/*.pyc'
 
 # Django
-z='cd ~/Sites/projects/zamboni && workon zamboni'
-zpull='z && git checkout master && git pull && git submodule update --init'
-zup='z && pushd vendor && git pull && git submodule update --init && popd && ./vendor/src/schematic/schematic migrations'
-check5="!f() { git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py; }; f"
+z='cd ~/Sites/projects/zamboni2 && workon z'
+zpull='z && git checkout master && git pull && git submodule sync && git submodule update --init --recursive'
+zup='zpull && ./vendor/src/schematic/schematic migrations'
+check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs /vendor/src/check/check.py"
 
 testme='manage.py test --noinput -s --logging-clear-handlers -a\!sphinx'
 
