@@ -45,6 +45,10 @@ gr='git rebase'
 gsq='git rebase -i head~5'
 gb='git branch'
 git='hub'
+gcaca='gci -a -C HEAD --amend'
+go='git open'
+gu='git url'
+gx='git examine'
 
 # nose
 nose=nosetests
@@ -59,9 +63,10 @@ pyc='rm -rfv **/*.pyc'
 
 # Django
 z='cd ~/Sites/projects/zamboni2 && workon z'
-zpull='z && git checkout master && git pull && git submodule sync && git submodule update --init --recursive'
+zpull="z && git checkout master && git pull && git submodule --quiet foreach 'git submodule --quiet sync && git submodule --quiet sync && git submodule update --init --recursive"
+
 zup='zpull && ./vendor/src/schematic/schematic migrations'
-check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs /vendor/src/check/check.py"
+check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py"
 
 testme='manage.py test --noinput -s --logging-clear-handlers -a\!sphinx'
 

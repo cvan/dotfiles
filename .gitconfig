@@ -1,6 +1,6 @@
 [user]
 	name = Chris Van
-	email = cwiemeersch@mozilla.com
+	email = cvan@mozilla.com
 [color]
 	diff = auto
 	status = auto
@@ -8,19 +8,22 @@
 [core]
 	excludesfile = /Users/chris/.gitignore
 	editor = /usr/bin/vim
+#[diff]
+#	ignoreSubmodules = all
 [alias]
 	ci = commit
 	co = checkout
 [merge]
 	tool = meld
 [github]
-	token = 8de0cba72dfb1837421604bdbbcefbab
-	user = jbalogh
+	user = cvan
 [interactive]
 	singlekey = 1
 [push]
 	default = matching
 [alias]
-	get = "!f() { echo Merging $1 && git checkout master && git pull && git checkout $1 && git rebase master && git checkout master && git merge $1; }; f"
+	get = "!f() { echo Merging $1 && git checkout master && git pull && git submodule sync && git submodule update --recursive && git checkout $1 && git rebase master && git checkout master && git merge $1; }; f"
 	url = "!f() { ~/Scripts/./git-url.sh $1; }; f"
+	open = "!f() { ~/Scripts/./git-open.sh $1; }; f"
 	check = "!f() { ~/Scripts/./git-check.sh $1; }; f"
+	examine = "!f() { ~/Scripts/./git-examine.sh $1; }; f"
