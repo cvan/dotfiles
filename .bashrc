@@ -44,5 +44,5 @@ zup() {
     ./vendor/src/schematic/schematic migrations
 }
 
-export PATH="/usr/local/bin:$PATH:/usr/local/sbin"
+export PATH="~/:/usr/local/bin:$PATH:/usr/local/sbin"
 export HOSTNAME='system.local'

@@ -37,18 +37,21 @@ gs='git status'
 gst='git stash'
 gsta='git stash apply'
 gci='git commit'
-gl='git log'
+gl='git log --abbrev-commit'
 glp='git log -p'
 gv='git svn'
 gp='git pull && git submodule update --recursive'
 gr='git rebase'
 gsq='git rebase -i head~5'
 gb='git branch'
-git='hub'
+#git='hub'
 gcaca='gci -a -C HEAD --amend'
 go='git open'
 gu='git url'
 gx='git examine'
+gpom='git push origin master && sleep 30 && python scripts/checkdev.py&'
+
+mate='subl'
 
 # nose
 nose=nosetests
@@ -60,20 +63,26 @@ py=python
 ip=ipython
 ipo=ipython
 pyc='rm -rfv **/*.pyc'
+json='python -m json.tool'
 
 # Django
-z='cd ~/Sites/projects/zamboni2 && workon z'
-zpull="z && git checkout master && git pull && git submodule --quiet foreach 'git submodule --quiet sync && git submodule --quiet sync && git submodule update --init --recursive"
+z='cd ~/Sites/projects/zamboni3 && workon z'
+zpull="z && git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive'"
 
 zup='zpull && ./vendor/src/schematic/schematic migrations'
 check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py"
 
-testme='manage.py test --noinput -s --logging-clear-handlers -a\!sphinx'
+testme='manage.py test --noinput -s --logging-clear-handlers -a\!sphinx --verbosity=2'
+tm='testme --settings=settings_local_mkt'
+ta='testme'
 
 # vim
 v=vim
-c=v
-b=v
+#c=v
+#b=v
+
+# Projects
+pr='cd ~/Sites/projects/prana && workon prana'
 
 # ssh targets
 d='ssh dekkostudios.com@dekkostudios.com'

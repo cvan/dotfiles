@@ -5,6 +5,8 @@ DIRSTACKSIZE=50
 cdpath=(. ~)
 
 fpath=( ${HOME}/.zsh/func $fpath )
+
+export PYTHONDONTWRITEBYTECODE=1
 export EDITOR=vim
 export PAGER=most
 export ACK_COLOR_MATCH=magenta
@@ -25,7 +27,7 @@ if [[ $? -eq 1 ]]; then
     export PATH=$EXTRA:$PATH
 fi
 
-export PATH=/usr/local/bin/:/usr/local/sbin/:$PATH
+export PATH=/Users/chris/bin/:/Users/chris/:/usr/local/bin/:/usr/local/sbin/:$PATH
 
 # Load aliases
 if [[ -r ${HOME}/.aliasrc ]]; then
@@ -182,14 +184,23 @@ ff() {
 }
 
 oak() {
-    curl -d "TERMS_ACCEPTED=1&ACCESS_CODE=A8Z689EPH2BS&STATUS=1&ROOM_NO=Virtual%20Room&ASSIGNED_IP=172.16.7.214&MAC_ADDRESS=78:ca:39:b7:8b:8d&FLAGS=3&PORT_ID=0&REG_TYPE=&VLAN_ID=0&UID=7267&MODE=2&STATUS=8384&SOLN_REG_TRANS_DT=zzzREG_TRANS_DTzzz&SOLN_REG_TRANS_KEY=zzzREG_TRANS_KEYzzz&REALIPS_ARE_GONE=0" http://soln-sr3694.solutionip.com/common_ip_cgi/oakwood_access.cgi
+    curl -d "TERMS_ACCEPTED=1&ACCESS_CODE=A97A57LB75JB&STATUS=1&ROOM_NO=Virtual%20Room&ASSIGNED_IP=172.16.7.214&MAC_ADDRESS=78:ca:39:b7:8b:8d&FLAGS=3&PORT_ID=0&REG_TYPE=&VLAN_ID=0&UID=7267&MODE=2&STATUS=8384&SOLN_REG_TRANS_DT=zzzREG_TRANS_DTzzz&SOLN_REG_TRANS_KEY=zzzREG_TRANS_KEYzzz&REALIPS_ARE_GONE=0" http://soln-sr3694.solutionip.com/common_ip_cgi/oakwood_access.cgi
 }
 
 function ss {
-  IMGUR_API_KEY=""
+  # Window.
+  IMGUR_API_KEY="064a272019cee501a85f2378c789cb7c"
   SHOT_FILE="/tmp/`date +%s`.png"
   screencapture -iW ${SHOT_FILE}
   echo "Sending ${SHOT_FILE} ..."
-  curl -F "image=@${SHOT_FILE}" -F "key=${IMGUR_API_KEY}" http://api.imgur.com/2/upload.xml | sed 's/.*<original>\([^<]*\).*<.*/\1/' | pbcopy
+  curl -F "image=@${SHOT_FILE}" -F "key=${IMGUR_API_KEY}" http://api.imgur.com/2/upload.xml | sed 's/.*<original>\([^<]*\).*<.*/\1/' | cut -d ' ' -f 4 | sed 'N;s/\n//' | pbcopy
 }
 
+function sss {
+  # Small.
+  IMGUR_API_KEY="064a272019cee501a85f2378c789cb7c"
+  SHOT_FILE="/tmp/`date +%s`.png"
+  screencapture -i ${SHOT_FILE}
+  echo "Sending ${SHOT_FILE} ..."
+  curl -F "image=@${SHOT_FILE}" -F "key=${IMGUR_API_KEY}" http://api.imgur.com/2/upload.xml | sed 's/.*<original>\([^<]*\).*<.*/\1/' | cut -d ' ' -f 4 | sed 'N;s/\n//' | pbcopy
+}
