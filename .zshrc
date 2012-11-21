@@ -1,3 +1,5 @@
+cd ~/
+
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
@@ -5,13 +7,19 @@ DIRSTACKSIZE=50
 cdpath=(. ~)
 
 fpath=( ${HOME}/.zsh/func $fpath )
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PYTHONDONTWRITEBYTECODE=1
 export EDITOR=vim
 export PAGER=most
 export ACK_COLOR_MATCH=magenta
 
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
 source $HOME/.virtualenvwrapper
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
@@ -27,7 +35,8 @@ if [[ $? -eq 1 ]]; then
     export PATH=$EXTRA:$PATH
 fi
 
-export PATH=/Users/chris/bin/:/Users/chris/:/usr/local/bin/:/usr/local/sbin/:$PATH
+export NODE_PATH="/usr/local/lib/node"
+export PATH=/usr/local/share/python:/Users/chris/bin/:/Users/chris/:/usr/local/bin/:/usr/local/sbin/:/usr/local/share/npm/bin:$PATH
 
 # Load aliases
 if [[ -r ${HOME}/.aliasrc ]]; then

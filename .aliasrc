@@ -66,10 +66,10 @@ pyc='rm -rfv **/*.pyc'
 json='python -m json.tool'
 
 # Django
-z='cd ~/Sites/projects/zamboni3 && workon z'
+z='cd /opt/zamboni && workon z'
 zpull="z && git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive'"
 
-zup='zpull && ./vendor/src/schematic/schematic migrations'
+zup='zpull && schematic migrations'
 check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py"
 
 testme='manage.py test --noinput -s --logging-clear-handlers -a\!sphinx --verbosity=2'
