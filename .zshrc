@@ -14,7 +14,7 @@ export EDITOR=vim
 export PAGER=most
 export ACK_COLOR_MATCH=magenta
 
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+export WORDCHARS='*?_[]~=&;!#$%^(){}'
 
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
