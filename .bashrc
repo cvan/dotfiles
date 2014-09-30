@@ -1,5 +1,13 @@
 echo "Reading ~/.bashrc ..."
 
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/chris/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/Users/chris/google-cloud-sdk/completion.bash.inc'
+
+
+
 export HISTCONTROL=erasedups
 export HISTSIZE=7000
 shopt -s histappend
@@ -12,7 +20,7 @@ oak() {
     curl -d "TERMS_ACCEPTED=1&ACCESS_CODE=A8Z689EPH2BS&STATUS=1&ROOM_NO=Virtual%20Room&ASSIGNED_IP=172.16.7.214&MAC_ADDRESS=78:ca:39:b7:8b:8d&FLAGS=3&PORT_ID=0&REG_TYPE=&VLAN_ID=0&UID=7267&MODE=2&STATUS=8384&SOLN_REG_TRANS_DT=zzzREG_TRANS_DTzzz&SOLN_REG_TRANS_KEY=zzzREG_TRANS_KEYzzz&REALIPS_ARE_GONE=0" http://soln-sr3694.solutionip.com/common_ip_cgi/oakwood_access.cgi
 }
 
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
+#PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
 export CLICOLOR=1
@@ -46,3 +54,5 @@ zup() {
 
 export PATH="~/:/usr/local/bin:$PATH:/usr/local/sbin"
 export HOSTNAME='system.local'
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

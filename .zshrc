@@ -1,4 +1,8 @@
-cd ~/
+
+ES='http://localhost:9200'
+ESDEV=http://elasticsearch-zlb.stage.addons.phx1.mozilla.com:9200
+ESPROD=http://10.32.124.200:9200
+ESMONO=http://monoes1.mktweb.services.phx1.mozilla.com:9200
 
 HISTFILE=~/.histfile
 HISTSIZE=5000
@@ -11,7 +15,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PYTHONDONTWRITEBYTECODE=1
 export EDITOR=vim
-export PAGER=most
+#export PAGER=most
 export ACK_COLOR_MATCH=magenta
 
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
@@ -35,8 +39,18 @@ if [[ $? -eq 1 ]]; then
     export PATH=$EXTRA:$PATH
 fi
 
+
+# The next line updates PATH for the Google Cloud SDK.
+#source '/Users/chris/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+#source '/Users/chris/google-cloud-sdk/completion.bash.inc'
+
 export NODE_PATH="/usr/local/lib/node"
-export PATH=/usr/local/share/python:/Users/chris/bin/:/Users/chris/:/usr/local/bin/:/usr/local/sbin/:/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/share/python:/Users/chris/bin/:/Users/chris/:/usr/local/bin/:/usr/local/sbin/:/usr/local/share/npm/bin:/usr/local/:/usr/local/Cellar/go/1.0.3/bin/:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs:$PATH
+
+export RBENV_ROOT=/usr/local/var/rbenv
+eval "$(rbenv init -)"
 
 # Load aliases
 if [[ -r ${HOME}/.aliasrc ]]; then
@@ -73,14 +87,8 @@ esac
 RPS1=$'%{\e[34m%}%~%{\e[0m%}%{\e[35m%}%2v%{\e[0m%}'
 PS1=$'%{\e[36m%}%v %{\e[0m%}'
 case $HOST in
-    (venona)
-        psvar='$';;
-    (archie)
-        psvar='(archie) $';;
-    (khan.mozilla.org)
-        psvar='(khan) $';;
     (*)
-        psvar="($HOST) %%";;
+        psvar="%";;
 esac
 
 if [[ $UID == 0 ]]; then
@@ -192,8 +200,8 @@ ff() {
     find . -name "*$1*"
 }
 
-oak() {
-    curl -d "TERMS_ACCEPTED=1&ACCESS_CODE=A97A57LB75JB&STATUS=1&ROOM_NO=Virtual%20Room&ASSIGNED_IP=172.16.7.214&MAC_ADDRESS=78:ca:39:b7:8b:8d&FLAGS=3&PORT_ID=0&REG_TYPE=&VLAN_ID=0&UID=7267&MODE=2&STATUS=8384&SOLN_REG_TRANS_DT=zzzREG_TRANS_DTzzz&SOLN_REG_TRANS_KEY=zzzREG_TRANS_KEYzzz&REALIPS_ARE_GONE=0" http://soln-sr3694.solutionip.com/common_ip_cgi/oakwood_access.cgi
+fl() {
+    flake8 `git diff-files --name-only -- '*.py'`
 }
 
 function ss {
@@ -213,3 +221,6 @@ function sss {
   echo "Sending ${SHOT_FILE} ..."
   curl -F "image=@${SHOT_FILE}" -F "key=${IMGUR_API_KEY}" http://api.imgur.com/2/upload.xml | sed 's/.*<original>\([^<]*\).*<.*/\1/' | cut -d ' ' -f 4 | sed 'N;s/\n//' | pbcopy
 }
+source /usr/local/Cellar/autoenv/0.1.0/activate.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

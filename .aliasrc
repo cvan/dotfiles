@@ -8,7 +8,7 @@ o=open
 rrm='rm -rf'
 
 check=check.py
-django='python manage.py'
+django='DJANGO_SETTINGS_MODULE="settings_local" python manage.py'
 
 # ls
 ls='ls -FG'
@@ -45,18 +45,20 @@ gr='git rebase'
 gsq='git rebase -i head~5'
 gb='git branch'
 #git='hub'
-gcaca='gci -a -C HEAD --amend'
-go='git open'
+gcaca='ga . && gci -a -C HEAD --amend'
+goo='git open'
 gu='git url'
 gx='git examine'
 gpom='git push origin master && sleep 30 && python scripts/checkdev.py&'
+
+dev='curl -s https://marketplace-dev.allizom.org/media/updater.output.txt  | ack -A4 "commit [a-z0-9]{40}" | ack "\[localhost\] out:(.*)$" --output "\$1"'
 
 mate='subl'
 
 # nose
 nose=nosetests
-n=nose
-nh='nose -h M'
+#n=nose
+#nh='nose -h M'
 
 # Python
 py=python
@@ -64,17 +66,27 @@ ip=ipython
 ipo=ipython
 pyc='rm -rfv **/*.pyc'
 json='python -m json.tool'
+pbj='pbpaste | json'
+pbjc='pbj | pbcopy'
 
 # Django
 z='cd /opt/zamboni && workon z'
-zpull="z && git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive'"
+ol='cd /opt/olympia && workon z'
+zpull="git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive' && pip install --no-deps -r requirements/dev.txt --exists-action=w --find-links https://pyrepo.addons.mozilla.org/ --download-cache=/tmp/pip-cache"
 
-zup='zpull && schematic migrations'
+zup='zpull && DJANGO_SETTINGS_MODULE='settings_local' schematic migrations'
 check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py"
 
-testme='manage.py test --noinput -s --logging-clear-handlers -a\!sphinx --verbosity=2'
-tm='testme --settings=settings_local_mkt'
+br='cd /opt/brewprint && workon brewprint'
+w='cd /opt/webpay && workon w'
+s='cd /opt/solitude && workon s'
+
+testme='django test --noinput -s --logging-clear-handlers -a\!sphinx --verbosity=2'
+tm='testme'
 ta='testme'
+t='testme'
+wipeass="find . -name '*.pyc' -or -name '*.less.css' -or -name '*.styl.css' -or -name '*-min.css' -or -name '*-all.css' -or -name '*-min.js' -or -name '*-all.js' |  grep -v 'lib/.*\-min\.js' | xargs rm"
+flk='gd head~ --name-only | grep .py | xargs flake8 | grep -v E127 | grep -v E125 | grep -v E128 | grep -v E126'
 
 # vim
 v=vim

@@ -3,5 +3,7 @@
 --type-set=allcss=-all.css
 --type-set=lesscss=.less.css
 --type-set=less=.less
-
+--type-set=styl=.styl
+--type-set=json=.json
+--type-set=po=.po
 --nolesscss

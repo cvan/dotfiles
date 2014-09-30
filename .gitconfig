@@ -1,5 +1,5 @@
 [user]
-	name = Chris Van
+	name = Christopher Van
 	email = cvan@mozilla.com
 [color]
 	diff = auto
@@ -8,6 +8,7 @@
 [core]
 	excludesfile = /Users/chris/.gitignore
 	editor = /usr/bin/vim
+	autocrlf = input
 #[diff]
 #	ignoreSubmodules = all
 [alias]
@@ -15,6 +16,10 @@
 	co = checkout
 [merge]
 	tool = meld
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+        rebase = true
 [github]
 	user = cvan
 [interactive]
@@ -23,7 +28,9 @@
 	default = matching
 [alias]
 	get = "!f() { echo Merging $1 && git checkout master && git pull && git submodule sync && git submodule update --recursive && git checkout $1 && git rebase master && git checkout master && git merge $1; }; f"
-	url = "!f() { ~/Scripts/./git-url.sh $1; }; f"
-	open = "!f() { ~/Scripts/./git-open.sh $1; }; f"
-	check = "!f() { ~/Scripts/./git-check.sh $1; }; f"
-	examine = "!f() { ~/Scripts/./git-examine.sh $1; }; f"
+	url = "!f() { /opt/scripts/./git-url.sh $1; }; f"
+	open = "!f() { /opt/scripts/./git-open.sh $1; }; f"
+	check = "!f() { /opt/scripts/./git-check.sh $1; }; f"
+	examine = "!f() { /opt/scripts/./git-examine.sh $1; }; f"
+#[remote "origin"]
+#	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
