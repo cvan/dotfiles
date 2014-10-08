@@ -77,9 +77,9 @@ zpull="git checkout master && git pull && git submodule update && git submodule 
 zup='zpull && DJANGO_SETTINGS_MODULE='settings_local' schematic migrations'
 check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py"
 
-br='cd /opt/brewprint && workon brewprint'
-w='cd /opt/webpay && workon w'
-s='cd /opt/solitude && workon s'
+#br='cd /opt/brewprint && workon brewprint'
+#w='cd /opt/webpay && workon w'
+#s='cd /opt/solitude && workon s'
 
 testme='django test --noinput -s --logging-clear-handlers -a\!sphinx --verbosity=2'
 tm='testme'
@@ -95,6 +95,12 @@ v=vim
 
 # Projects
 pr='cd ~/Sites/projects/prana && workon prana'
+
+mg='cd /opt/galaxy.js-mobile-gamepad'
+
+mg1='mg && npm run-script dev'
+mg2='mg && npm run-script signalling-server'
+mg3='mg && mate .'
 
 # ssh targets
 d='ssh dekkostudios.com@dekkostudios.com'
