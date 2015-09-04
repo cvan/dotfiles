@@ -1,8 +1,8 @@
 
 ES='http://localhost:9200'
-ESDEV=http://elasticsearch-zlb.stage.addons.phx1.mozilla.com:9200
-ESPROD=http://10.32.124.200:9200
-ESMONO=http://monoes1.mktweb.services.phx1.mozilla.com:9200
+#ESDEV=http://elasticsearch-zlb.stage.addons.phx1.mozilla.com:9200
+#ESPROD=http://10.32.124.200:9200
+#ESMONO=http://monoes1.mktweb.services.phx1.mozilla.com:9200
 
 HISTFILE=~/.histfile
 HISTSIZE=5000
@@ -20,11 +20,11 @@ export ACK_COLOR_MATCH=magenta
 
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-source $HOME/.virtualenvwrapper
+#export WORKON_HOME=$HOME/.virtualenvs
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+#export PIP_VIRTUALENV_BASE=$WORKON_HOME
+#export PIP_RESPECT_VIRTUALENV=true
+#source $HOME/.virtualenvwrapper
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
 export HOSTNAME='system.local'

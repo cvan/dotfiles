@@ -9,8 +9,6 @@
 	excludesfile = /Users/chris/.gitignore
 	editor = /usr/bin/vim
 	autocrlf = input
-#[diff]
-#	ignoreSubmodules = all
 [alias]
 	ci = commit
 	co = checkout
