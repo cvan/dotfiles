@@ -7,9 +7,6 @@ p=popd
 o=open
 rrm='rm -rf'
 
-check=check.py
-django='DJANGO_SETTINGS_MODULE="settings_local" python manage.py'
-
 # ls
 ls='ls -FG'
 l='ls -lh'
@@ -17,7 +14,6 @@ l='ls -lh'
 ll='ls -lh'
 la='ls -A'
 lla='la -lhA'
-
 
 # Arch
 pac=pacman
@@ -49,9 +45,7 @@ gcaca='ga . && gci -a -C HEAD --amend'
 goo='git open'
 gu='git url'
 gx='git examine'
-gpom='git push origin master && sleep 30 && python scripts/checkdev.py&'
-
-dev='curl -s https://marketplace-dev.allizom.org/media/updater.output.txt  | ack -A4 "commit [a-z0-9]{40}" | ack "\[localhost\] out:(.*)$" --output "\$1"'
+gpom="git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive'"
 
 mate='subl'
 
@@ -66,44 +60,14 @@ ip=ipython
 ipo=ipython
 pyc='rm -rfv **/*.pyc'
 json='python -m json.tool'
+
+# Clipboard
 pbj='pbpaste | json'
 pbjc='pbj | pbcopy'
-
-# Django
-z='cd /opt/zamboni && workon z'
-ol='cd /opt/olympia && workon z'
-zpull="git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive' && pip install --no-deps -r requirements/dev.txt --exists-action=w --find-links https://pyrepo.addons.mozilla.org/ --download-cache=/tmp/pip-cache"
-
-zup='zpull && DJANGO_SETTINGS_MODULE='settings_local' schematic migrations'
-check5="git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py"
-
-#br='cd /opt/brewprint && workon brewprint'
-#w='cd /opt/webpay && workon w'
-#s='cd /opt/solitude && workon s'
-
-testme='django test --noinput -s --logging-clear-handlers -a\!sphinx --verbosity=2'
-tm='testme'
-ta='testme'
-t='testme'
-wipeass="find . -name '*.pyc' -or -name '*.less.css' -or -name '*.styl.css' -or -name '*-min.css' -or -name '*-all.css' -or -name '*-min.js' -or -name '*-all.js' |  grep -v 'lib/.*\-min\.js' | xargs rm"
-flk='gd head~ --name-only | grep .py | xargs flake8 | grep -v E127 | grep -v E125 | grep -v E128 | grep -v E126'
 
 # vim
 v=vim
 #c=v
 #b=v
-
-# Projects
-pr='cd ~/Sites/projects/prana && workon prana'
-
-mg='cd /opt/galaxy.js-mobile-gamepad'
-
-mg1='mg && npm run-script dev'
-mg2='mg && npm run-script signalling-server'
-mg3='mg && mate .'
-
-# ssh targets
-d='ssh dekkostudios.com@dekkostudios.com'
-p='ssh cwiemeersch@people.mozilla.org'
 
 # vim: set ft=sh
