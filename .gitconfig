@@ -1,12 +1,12 @@
 [user]
-	name = Christopher Van
-	email = cvan@mozilla.com
+	name = Christopher Van Wiemeersch
+	email = cvan@aalto.co
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/chris/.gitignore
+	excludesfile = /Users/cvan/.gitignore
 	editor = /usr/bin/vim
 	autocrlf = input
 [alias]
@@ -26,9 +26,3 @@
 	default = matching
 [alias]
 	get = "!f() { echo Merging $1 && git checkout master && git pull && git submodule sync && git submodule update --recursive && git checkout $1 && git rebase master && git checkout master && git merge $1; }; f"
-	url = "!f() { /opt/scripts/./git-url.sh $1; }; f"
-	open = "!f() { /opt/scripts/./git-open.sh $1; }; f"
-	check = "!f() { /opt/scripts/./git-check.sh $1; }; f"
-	examine = "!f() { /opt/scripts/./git-examine.sh $1; }; f"
-#[remote "origin"]
-#	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
