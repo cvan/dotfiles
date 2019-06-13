@@ -1,3 +1,4 @@
+.ackrc
 .env
 *.DS_Store
 *.pyc
