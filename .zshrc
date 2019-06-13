@@ -21,8 +21,8 @@ export LS_COLORS=LSCOLORS
 export NODE_PATH="/usr/local/lib/node"
 export PATH=/usr/local/share/python:$HOME/bin/:$HOME/:/usr/local/bin/:/usr/local/sbin/:/usr/local/share/npm/bin:/usr/local/:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs:$PATH
 
-export RBENV_ROOT=/usr/local/var/rbenv
-eval "$(rbenv init -)"
+#export RBENV_ROOT=/usr/local/var/rbenv
+#eval "$(rbenv init -)"
 
 # Load aliases
 if [[ -r ${HOME}/.aliasrc ]]; then
@@ -161,3 +161,5 @@ ff () {
 }
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+echo 'Loaded `.zshrc`'
