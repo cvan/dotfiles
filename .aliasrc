@@ -1,3 +1,7 @@
+f='cd ~/projects/aalto-co/frontend && echo "docker-compose up"'
+f2='cd ~/Projects/aalto-co/frontend && echo "npm run build:watch"'
+b='cd ~/Projects/aalto-co/backend && echo "npm run start-dev"'
+
 du='du -sh'
 diff='diff -u'
 grep='grep --color=auto'
@@ -40,6 +44,7 @@ gp='git pull && git submodule update --recursive'
 gr='git rebase'
 gsq='git rebase -i head~5'
 gb='git branch'
+gbl='git for-each-ref --sort=-committerdate refs/heads/ | less'
 #git='hub'
 gcaca='ga . && gci -a -C HEAD --amend'
 goo='git open'
@@ -47,7 +52,7 @@ gu='git url'
 gx='git examine'
 gpom="git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive'"
 
-mate='subl'
+mate='code'
 
 # nose
 nose=nosetests

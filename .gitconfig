@@ -6,7 +6,7 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/cvan/.gitignore
+	excludesfile = /Users/chrisv/.gitignore
 	editor = /usr/bin/vim
 	autocrlf = input
 [alias]

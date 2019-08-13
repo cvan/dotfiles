@@ -4,6 +4,8 @@ SAVEHIST=5000
 DIRSTACKSIZE=50
 cdpath=(. ~)
 
+plugins=(git colored-man colorize pip python brew osx zsh-syntax-highlighting)
+
 fpath=( ${HOME}/.zsh/func $fpath )
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -35,9 +37,11 @@ if [[ -r ${HOME}/.profile ]]; then
 fi
 
 # # Load git_ps1
-# if [[ -r ${HOME}/.zsh/git-ps1 ]]; then
-#     . ${HOME}/.zsh/git-ps1
-# fi
+if [[ -r ${HOME}/.zsh/git-ps1 ]]; then
+    . ${HOME}/.zsh/git-ps1
+    #setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+    #precmd () { __git_ps1 "%n" ":%~$ " "|%s" }
+fi
 
 # Enable color support of ls
 #if [ "$TERM" != "dumb" ]; then
@@ -46,14 +50,14 @@ fi
 
 psvar=()
 # # Set the title to "user@host: directory"
-# case $TERM in
-#     (rxvt*|xterm*)
-#         precmd () {
-#             print -Pn "\e]0;%n@%m: %~\a"
-#             psvar[2]=$(__git_ps1)
-#         }
-# 	;;
-# esac
+case $TERM in
+    (rxvt*|xterm*)
+        precmd () {
+            print -Pn "\e]0;%n@%m: %~\a"
+            psvar[2]=$(__git_ps1)
+        }
+	;;
+esac
 
 # Set the prompt
 RPS1=$'%{\e[34m%}%~%{\e[0m%}%{\e[35m%}%2v%{\e[0m%}'
@@ -163,3 +167,25 @@ ff () {
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 echo 'Loaded `.zshrc`'
+
+setopt EXTENDED_GLOB
+ZSH_THEME="robbyrussell"
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# For compilers to find ruby you may need to set:
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+# For pkg-config to find ruby you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+# If you need to have libpq first in your PATH run:
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# For compilers to find libpq you may need to set:
+export LDFLAGS="-L/usr/local/opt/libpq/lib"
+export CPPFLAGS="-I/usr/local/opt/libpq/include"
+
+# For pkg-config to find libpq you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/libpq/lib/pkgconfig"
