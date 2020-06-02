@@ -1,15 +1,18 @@
 f='cd ~/projects/aalto-co/frontend && echo "docker-compose up"'
 f2='cd ~/Projects/aalto-co/frontend && echo "npm run build:watch"'
-b='cd ~/Projects/aalto-co/backend && echo "npm run start-dev"'
+b='cd ~/Projects/aalto-co/backend && echo "npm run start:dev"'
+ap='cd ~/Projects/aalto-co/new/pubsite && PORT=3030 npm run dev'
+p1='cd ~/projects/aalto-co/pwa && npm run dev && open http://localhost:3000'
+p2='cd ~/projects/aalto-co/pwa && code .'
 
 du='du -sh'
 diff='diff -u'
 grep='grep --color=auto'
 rgrep='grep -r --color=auto'
 mk='mkdir -p'
-p=popd
 o=open
 rrm='rm -rf'
+datefn='date +"%Y.%m.%d-%M.%S"'
 
 # ls
 ls='ls -FG'
@@ -51,6 +54,7 @@ goo='git open'
 gu='git url'
 gx='git examine'
 gpom="git checkout master && git pull && git submodule update && git submodule --quiet foreach 'git submodule --quiet sync && git submodule update --init --recursive'"
+gps='git pull && git push origin head && git checkout develop && git pull && git merge - && git push origin head && git checkout -'
 
 mate='code'
 
